@@ -1,6 +1,10 @@
 // TODO: Include packages needed for this application
+const fs = requires('fs');
 const inquirer = require('inquirer');
+const generateMarkdown = require("./utils/generateMarkdown");
 // TODO: Create an array of questions for user input
+let readMeContent = {}
+
 const questions = [
   {
     type: 'input',
@@ -39,7 +43,19 @@ const questions = [
       if (tableOfContents) {
         return true;
       } else {
-        console.log('Enter project .');
+        console.log('Select what to include in README.');
+        return false;
+      }
+    }
+  },
+  {
+    type: 'input',
+    name: 'Installation',
+    message: 'What is used in this project?',
+    when: ({ tableOfContents }) => {
+      if (tableOfContents.includes('Installation')){
+        return true;
+      } else {
         return false;
       }
     }
@@ -48,11 +64,10 @@ const questions = [
     type: 'input',
     name: 'Usage Information',
     message: 'What is this project used for?',
-    validate: usageName => {
-      if (usageName) {
+    when: ({ tableOfContents }) => {
+      if (tableOfContents.includes('Usage')){
         return true;
       } else {
-        console.log('Enter project purpose.');
         return false;
       }
     }
@@ -62,11 +77,10 @@ const questions = [
     name: 'License',
     message: 'What license would you like to use?',
     choices: [],
-    validate: titleName => {
-      if (titleName) {
+    when: ({ tableOfContents }) => {
+      if (tableOfContents.includes('License')){
         return true;
       } else {
-        console.log('');
         return false;
       }
     }
@@ -79,9 +93,8 @@ const questions = [
   },
   {
     type: 'input',
-    name: 'Name(s) of contributor(s).',
-    message: 'List the name(s) of your contributor(s).',
-    when: ({ Contributers }) = Contributers,
+    name: 'contributersName',
+    message: 'Enter contributers name.'
   },
   {
     type: 'input',
@@ -110,4 +123,6 @@ const promptUser = () => {
 function init() {}
 
 // Function call to initialize app
-init();
+init() {
+  return inquirer.prompt(questions).then(response => {readMeContent = response},
+  };
