@@ -59,13 +59,58 @@ const questions = [
   },
   {
     type: 'input',
-    name: 'title',
-    message: 'What is the title of your project?',
+    name: 'License',
+    message: 'What license would you like to use?',
+    choices: [],
     validate: titleName => {
       if (titleName) {
         return true;
       } else {
-        console.log('Enter project title.');
+        console.log('');
+        return false;
+      }
+    }
+  },
+  {
+    type: 'input',
+    name: 'Contributing',
+    message: 'Who is contributing?',
+    validate: titleName => {
+      if (titleName) {
+        return true;
+      } else {
+        console.log('');
+        return false;
+      }
+    }
+  },
+  {
+    type: 'input',
+    name: 'Tests',
+    message: 'How does someone test your program?',
+    validate: titleName => {
+      if (titleName) {
+        return true;
+      } else {
+        console.log('');
+        return false;
+      }
+    }
+  },
+  {
+    type: 'input',
+    name: 'Questions',
+    message: 'Do you have any questions?'
+  },
+  {
+    type: 'input',
+    name: '',
+    message: '',
+    validate: titleName => {
+      if (titleName) {
+        return true;
+      } else {
+        console.log('');
         return false;
       }
     }
