@@ -1,5 +1,5 @@
 // TODO: Include packages needed for this application
-
+const inquirer = require('inquirer');
 // TODO: Create an array of questions for user input
 const questions = [
   {
@@ -72,17 +72,16 @@ const questions = [
     }
   },
   {
+    type: 'confirm',
+    name: 'Contributers',
+    message: 'Are you working with contributers?',
+    default: false
+  },
+  {
     type: 'input',
-    name: 'Contributing',
-    message: 'Who is contributing?',
-    validate: titleName => {
-      if (titleName) {
-        return true;
-      } else {
-        console.log('');
-        return false;
-      }
-    }
+    name: 'Name(s) of contributor(s).',
+    message: 'List the name(s) of your contributor(s).',
+    when: ({ Contributers }) = Contributers,
   },
   {
     type: 'input',
@@ -102,37 +101,10 @@ const questions = [
     name: 'Questions',
     message: 'Do you have any questions?'
   },
-  {
-    type: 'input',
-    name: '',
-    message: '',
-    validate: titleName => {
-      if (titleName) {
-        return true;
-      } else {
-        console.log('');
-        return false;
-      }
-    }
-  },
-  {
-    type: 'input',
-    name: 'title',
-    message: 'What is the title of your project?',
-    validate: titleName => {
-      if (titleName) {
-        return true;
-      } else {
-        console.log('Enter project title.');
-        return false;
-      }
-    }
-  }
-
 ];
-
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+const promptUser = () => {
+  return inquirer.prompt(questions);
+}
 
 // TODO: Create a function to initialize app
 function init() {}
