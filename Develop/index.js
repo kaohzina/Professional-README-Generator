@@ -124,5 +124,5 @@ function init() {}
 
 // Function call to initialize app
 init() {
-  return inquirer.prompt(questions).then(response => {readMeContent = response},
+  return inquirer.prompt(questions).then(response => {readMeContent = response}
   };
