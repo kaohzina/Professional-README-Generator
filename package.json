@@ -1,23 +1,14 @@
 {
-  "name": "Professional-README-Generator",
+  "name": "static-site",
   "version": "1.0.0",
-  "description": "AS A developer I WANT a README generator SO THAT I can quickly create a professional README for a new project",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/kaohzina/Professional-README-Generator.git"
-  },
-  "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/kaohzina/Professional-README-Generator/issues"
-  },
-  "homepage": "https://github.com/kaohzina/Professional-README-Generator#readme",
   "dependencies": {
-    "inquirer": "^8.2.0"
+    "inquirer": "^6.3.1"
   }
 }
