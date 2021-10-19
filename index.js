@@ -1,8 +1,6 @@
-// TODO: Include packages needed for this application
 const fs = requires('fs');
 const inquirer = require('inquirer');
 const generateMarkdown = require("./utils/generateMarkdown");
-// TODO: Create an array of questions for user input
 let readMeContent = {}
 
 const questions = [
@@ -115,16 +113,15 @@ const questions = [
     message: 'Do you have any questions?'
   },
 ];
+
 const promptUser = () => {
   return inquirer.prompt(questions);
 }
 
-// TODO: Create a function to initialize app
-function init() {}
-
-// Function call to initialize app
-init() {
+function init() {
   return inquirer
   .prompt(questions)
   .then(response => {readMeContent = response})
 }
+
+init();
