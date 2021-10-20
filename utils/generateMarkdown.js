@@ -22,7 +22,14 @@ const generateProjectTitle = data => {
 
 function generateMarkdown(data) {
   return `# ${data.title}
-
+${generateDescription(data)}
+${generateTableOfContents(data)}
+${generateInstallations(data)}
+${generateUsage(data)}
+${generateLicense(data)}
+${generateContributing(data)}
+${generateTests(data)}
+${generateQuestions(data)}
 `;
 }
 
