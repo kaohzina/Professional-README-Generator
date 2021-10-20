@@ -9,27 +9,32 @@ function renderLicenseLink(license) {}
 // If there is no license, return an empty string
 function renderLicenseSection(license) {}
 
-const generateProjectTitle = data => {
-  const createInstall = data => {
-    if(!data.tableOfContents.includes('Installation')){return '';
+const generateProjectTitle = (data) => {};
+
+const createInstall = (data) => {
+  if (!data.tableOfContents.includes("Installation")) {
+    return "";
   }
   return `
-  ## Installation
-  ${data.installation}`}
-  
-}
-
+## Installation
+${data.installation}`;
+};
 
 function generateMarkdown(data) {
   return `# ${data.title}
-${generateDescription(data)}
-${generateTableOfContents(data)}
-${generateInstallations(data)}
-${generateUsage(data)}
-${generateLicense(data)}
-${generateContributing(data)}
-${generateTests(data)}
-${generateQuestions(data)}
+
+  ## Description
+${createDescription(data)}
+${createLicenseSymbol(data)}
+
+## Table of Contents
+${createTableOfContents(data)}
+${createInstall(data)}
+${createUsage(data)}
+${createLicense(data)}
+${createContributing(data)}
+${createTests(data)}
+${createQuestions(data)}
 `;
 }
 
