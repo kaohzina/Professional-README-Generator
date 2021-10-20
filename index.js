@@ -1,4 +1,3 @@
-const fs = requires('fs');
 const inquirer = require('inquirer');
 const generateMarkdown = require("./utils/generateMarkdown");
 let readMeContent = {}
@@ -6,7 +5,7 @@ let readMeContent = {}
 const questions = [
   {
     type: 'input',
-    name: 'Project name',
+    name: 'projectName',
     message: 'What is the name of your project?',
     validate: projectName => {
       if (projectName) {
@@ -19,7 +18,7 @@ const questions = [
   },
   {
     type: 'input',
-    name: 'Project Description',
+    name: 'projectDescription',
     message: 'What is the project about?',
     validate: projectDescription => {
       if (projectDescription) {
@@ -32,19 +31,9 @@ const questions = [
   },
   {
     type: 'checkbox',
-    name: 'Table of Contents',
+    name: 'tableOfContents',
     message: 'Include in README?',
-    choices: ['Installation', 'Usage', 'License', 'Contributing', 'Tests'] 
-  },
-  {
-    validate: tableOfContents => {
-      if (tableOfContents) {
-        return true;
-      } else {
-        console.log('Select what to include in README.');
-        return false;
-      }
-    }
+    choices: ['Installation', 'Usage', 'License', 'Contributers', 'Tests'] 
   },
   {
     type: 'input',
@@ -92,14 +81,21 @@ const questions = [
   {
     type: 'input',
     name: 'contributersName',
-    message: 'Enter contributers name.'
+    message: 'Enter contributers name.',
+    when: ({tableOfContents}) => {
+      if (tableOfContents.includes('Contributers')){
+        return true;
+      } else {
+        return false;
+      }
+    }
   },
   {
     type: 'input',
     name: 'Tests',
     message: 'How does someone test your program?',
-    validate: titleName => {
-      if (titleName) {
+    when: ({tableOfContents}) => {
+      if (tableOfContents.includes('Contributers')){
         return true;
       } else {
         console.log('');
