@@ -1,5 +1,3 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-const fs = require('fs');
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {}
 
@@ -12,6 +10,12 @@ function renderLicenseLink(license) {}
 function renderLicenseSection(license) {}
 
 const generateProjectTitle = data => {
+  const createInstall = data => {
+    if(!data.tableOfContents.includes('Installation')){return '';
+  }
+  return `
+  ## Installation
+  ${data.installation}`}
   
 }
 
