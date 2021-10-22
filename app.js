@@ -1,9 +1,8 @@
-const { table } = require("console");
 const inquirer = require("inquirer");
-const generateMarkdown = require("./utils/generateMarkdown");
-let readMeContent = {};
+const generateMarkdown = require('./src/page-template');
+const { writeFile } =  require('./utils/generateMarkdown');
 
-const questions = [
+questions = [
   {
     type: "input",
     name: "projectName",
@@ -90,13 +89,7 @@ const questions = [
     type: "input",
     name: "contributersName",
     message: "Enter contributers name.",
-    validate: (Contributers) => {
-      if (Contributers) {
-        return true;
-      } else {
-        return false;
-      }
-    },
+    when: ({Contributers}) => (Contributers)
   },
   {
     type: "confirm",
@@ -130,10 +123,6 @@ const questions = [
   },
 ];
 
-const promptUser = () => {
-  return inquirer.prompt(questions);
-  //if contributers === multiple users, while they request further contributors, append to response
-};
 
 function init() {
   return inquirer.prompt(questions).then((response) => {
@@ -144,4 +133,22 @@ function init() {
   });
 }
 
-init();
+init()
+  .then(promptProject)
+  .then(portfolioData => {
+    return generatePage(portfolioData);
+  })
+  .then(pageHTML => {
+    return writeFile(pageHTML);
+  })
+  .then(writeFileResponse => {
+    console.log(writeFileResponse);
+    return copyFile();
+  })
+  .then(copyFileResponse => {
+    console.log(copyFileResponse);
+  })
+  .catch(err => {
+    console.log(err);
+  });
+
