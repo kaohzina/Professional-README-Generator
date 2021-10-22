@@ -1,6 +1,6 @@
+const fs = require('fs');
 const inquirer = require("inquirer");
-const generateMarkdown = require('./src/page-template');
-const { writeFile } =  require('./utils/generateMarkdown');
+const generateMarkdown =  require('./utils/generateMarkdown');
 
 questions = [
   {
@@ -123,32 +123,22 @@ questions = [
   },
 ];
 
+inquirer.prompt(questions)
+.then(function(data)
 
-function init() {
-  return inquirer.prompt(questions).then((response) => {
-    //while questions.multipleContributors == true, ask again
-    generateMarkdown(response);
-    //call generateMarkdown(data)
-    readMeContent = response;
-  });
-}
+// writing files
+const writeFile = function() {
+    fs.writeFile(`./dist/README.md`, generateMarkdown(input), err => {
+      if (err) throw (err);
+        return;
+      })
+    };
+  
 
-init()
-  .then(promptProject)
-  .then(portfolioData => {
-    return generatePage(portfolioData);
+function init(){
+  return inquirer.prompt(questions)
+  .then(response => { input = response
+  generateReadMe(input)
   })
-  .then(pageHTML => {
-    return writeFile(pageHTML);
-  })
-  .then(writeFileResponse => {
-    console.log(writeFileResponse);
-    return copyFile();
-  })
-  .then(copyFileResponse => {
-    console.log(copyFileResponse);
-  })
-  .catch(err => {
-    console.log(err);
-  });
-
+};
+init();

@@ -1,7 +1,9 @@
 const { fs } = require("fs");
 
 // If there is no license, return an empty string
-function renderLicenseBadge(license) {}
+function renderLicenseBadge(license) {
+  if (license==='MIT');
+}
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
@@ -11,16 +13,14 @@ function renderLicenseLink(license) {}
 // If there is no license, return an empty string
 function renderLicenseSection(license) {}
 
-const generateProjectTitle = (data) => {};
 
 const createInstall = (data) => {
   if (!data.tableOfContents.includes("Installation")) {
     return "";
   }
   return `
-## Installation
 ${data.installation}`;
-};
+}
 
 const createUsage = (data) => {
   if (!data.tableOfContents.includes("Usage")) {
@@ -67,18 +67,9 @@ const createQuestions = (data) => {
   ${data.questions}
   `
 }
-function generateMarkdown(data) {
-  return new Promise((res, rej) => {
-    fs.writeFile('./dist/README.md', data, err => {
-      if (err) {
-        rej(err);
-        return;
-      }
 
-      res({
-        ok: true,
-        message: 'File created!',
-        return: `# ${data.title}
+function generateMarkdown(data) {
+        return `# ${data.title}
 
         ## Description
         ${createDescription(data)}
@@ -86,38 +77,42 @@ function generateMarkdown(data) {
         
         ## Table of Contents
         ${createTableOfContents(data)}
+
+        
+        ## Installation
         ${createInstall(data)}
+
+        ## Usage
         ${createUsage(data)}
+        
+        ## Features
         ${createLicense(data)}
+
+        ## Contributing
         ${createContributing(data)}
+
+        ## Tests
         ${createTests(data)}
+
+        ## Questions
         ${createQuestions(data)}
         `
-      });
-    });
-  });
-};
- 
-const fs = require('fs');
-
-// writing files
-const writeFile = fileContent => {
-  return new Promise((resolve, reject) => {
-    fs.writeFile('./dist/README.md', fileContent, err => {
-      if (err) {
-        reject(err);
-        return;
-      }
-
-      resolve({
-        ok: true,
-        message: 'File created!'
-      });
-    });
-  });
 };
 
-module.exports = { writeFile };
-
+module.exports = data => {
+  const {data} = data;
+  return`
+    ${createProjectTitle(data)}
+    ${createDescription(data)}
+    ${createLicenseSymbol(data)}
+    ${createTableOfContents(data)}
+    ${createInstall(data)}
+    ${createUsage(data)}
+    ${createLicense(data)}
+    ${createContributing(data)}
+    ${createTests(data)}
+    ${createQuestions(data)}
+  `;
+};
 
 module.exports = generateMarkdown;

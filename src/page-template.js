@@ -71,18 +71,3 @@ const createQuestions = (data) => {
   `
 };
 
-module.exports = data => {
-  const {data} = data;
-  return`
-    ${createProjectTitle(data)}
-    ${createDescription(data)}
-    ${createLicenseSymbol(data)}
-    ${createTableOfContents(data)}
-    ${createInstall(data)}
-    ${createUsage(data)}
-    ${createLicense(data)}
-    ${createContributing(data)}
-    ${createTests(data)}
-    ${createQuestions(data)}
-  `;
-};
