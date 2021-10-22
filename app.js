@@ -49,7 +49,7 @@ questions = [
   },
   {
     type: "input",
-    name: "Usage Information",
+    name: "Usage",
     message: "What is this project used for?",
     when: ({ tableOfContents }) => {
       if (tableOfContents.includes("Usage")) {
