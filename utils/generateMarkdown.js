@@ -13,6 +13,13 @@ function renderLicenseLink(license) {}
 // If there is no license, return an empty string
 function renderLicenseSection(license) {}
 
+const createTableOfContents = (data) => {
+  `${data.tableOfContents}`;
+  }
+
+const createDescription = (data) => {
+`${data.projectDescription}`;
+}
 
 const createInstall = (data) => {
   if (!data.tableOfContents.includes("Installation")) {
@@ -68,51 +75,36 @@ const createQuestions = (data) => {
   `
 }
 
+
+// ${createLicenseSymbol(data)}
+
 function generateMarkdown(data) {
-        return `# ${data.title}
+        return `# ${data.projectName}
 
         ## Description
-        ${createDescription(data)}
-        ${createLicenseSymbol(data)}
+        ${data.projectDescription}
+        
         
         ## Table of Contents
-        ${createTableOfContents(data)}
+        ${data.tableOfContents}
 
         
         ## Installation
-        ${createInstall(data)}
+        ${data.installation}
 
         ## Usage
-        ${createUsage(data)}
-        
-        ## Features
-        ${createLicense(data)}
+        ${data.usage}
 
         ## Contributing
-        ${createContributing(data)}
+        ${data.contributing}
 
         ## Tests
-        ${createTests(data)}
+        ${data.tests}
 
         ## Questions
-        ${createQuestions(data)}
+        ${data.questions}
         `
 };
 
-module.exports = data => {
-  const {data} = data;
-  return`
-    ${createProjectTitle(data)}
-    ${createDescription(data)}
-    ${createLicenseSymbol(data)}
-    ${createTableOfContents(data)}
-    ${createInstall(data)}
-    ${createUsage(data)}
-    ${createLicense(data)}
-    ${createContributing(data)}
-    ${createTests(data)}
-    ${createQuestions(data)}
-  `;
-};
 
 module.exports = generateMarkdown;

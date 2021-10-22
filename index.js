@@ -2,7 +2,8 @@ const fs = require('fs');
 const inquirer = require("inquirer");
 const generateMarkdown =  require('./utils/generateMarkdown');
 
-questions = [
+function promptUser(){
+  return inquirer.prompt([
   {
     type: "input",
     name: "projectName",
@@ -121,24 +122,14 @@ questions = [
     name: "Questions",
     message: "Do you have any questions?",
   },
-];
-
-inquirer.prompt(questions)
-.then(function(data)
-
-// writing files
-const writeFile = function() {
-    fs.writeFile(`./dist/README.md`, generateMarkdown(input), err => {
-      if (err) throw (err);
-        return;
-      })
-    };
+  ]);
+}
   
-
-function init(){
-  return inquirer.prompt(questions)
-  .then(response => { input = response
-  generateReadMe(input)
-  })
+async function init(){
+  const data = await promptUser();
+  const generateReadMe = generateMarkdown(data)
+  fs.writeFile('./dist/README.md', generateReadMe, err => {
+    if (err) { reject(err); return;}
+  });
 };
 init();
