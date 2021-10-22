@@ -1,3 +1,5 @@
+const { fs } = require("fs");
+
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {}
 
@@ -66,21 +68,36 @@ const createQuestions = (data) => {
   `
 }
 function generateMarkdown(data) {
-  return `# ${data.title}
+  return new Promise((res, rej) => {
+    fs.writeFile('./dist/README.md', data, err => {
+      if (err) {
+        rej(err);
+        return;
+      }
 
-  ## Description
-${createDescription(data)}
-${createLicenseSymbol(data)}
+      res({
+        ok: true,
+        message: 'File created!',
+        return: `# ${data.title}
 
-## Table of Contents
-${createTableOfContents(data)}
-${createInstall(data)}
-${createUsage(data)}
-${createLicense(data)}
-${createContributing(data)}
-${createTests(data)}
-${createQuestions(data)}
-`;
-}
+        ## Description
+        ${createDescription(data)}
+        ${createLicenseSymbol(data)}
+        
+        ## Table of Contents
+        ${createTableOfContents(data)}
+        ${createInstall(data)}
+        ${createUsage(data)}
+        ${createLicense(data)}
+        ${createContributing(data)}
+        ${createTests(data)}
+        ${createQuestions(data)}
+        `
+      });
+    });
+  });
+};
+ 
+
 
 module.exports = generateMarkdown;

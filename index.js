@@ -1,3 +1,4 @@
+const { table } = require("console");
 const inquirer = require("inquirer");
 const generateMarkdown = require("./utils/generateMarkdown");
 let readMeContent = {};
@@ -63,7 +64,7 @@ const questions = [
     type: "input",
     name: "License",
     message: "What license would you like to use?",
-    choices: [],
+    choices: ['Eclipse','GNU','GNU GPL v3','GNU GPL v2','GNU AGPL v3','GNU AGPL v2','GNU LGPL v3','GNU FDL v1.3'],
     when: ({ tableOfContents }) => {
       if (tableOfContents.includes("License")) {
         return true;
@@ -77,11 +78,31 @@ const questions = [
     name: "Contributers",
     message: "Are you working with contributers?",
     default: false,
+    when: ({ tableOfContents }) => {
+      if (tableOfContents.includes("Contributers")) {
+        return true;
+      } else {
+        return false;
+      }
+    },
   },
   {
     type: "input",
     name: "contributersName",
     message: "Enter contributers name.",
+    validate: (Contributers) => {
+      if (Contributers) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+  },
+  {
+    type: "confirm",
+    name: "Contributers",
+    message: "Do you want to add another contributer?",
+    default: false,
     when: ({ tableOfContents }) => {
       if (tableOfContents.includes("Contributers")) {
         return true;
@@ -95,10 +116,9 @@ const questions = [
     name: "Tests",
     message: "How does someone test your program?",
     when: ({ tableOfContents }) => {
-      if (tableOfContents.includes("Contributers")) {
+      if (tableOfContents.includes("Tests")) {
         return true;
       } else {
-        console.log("");
         return false;
       }
     },
@@ -112,10 +132,14 @@ const questions = [
 
 const promptUser = () => {
   return inquirer.prompt(questions);
+  //if contributers === multiple users, while they request further contributors, append to response
 };
 
 function init() {
   return inquirer.prompt(questions).then((response) => {
+    //while questions.multipleContributors == true, ask again
+    generateMarkdown(response);
+    //call generateMarkdown(data)
     readMeContent = response;
   });
 }
