@@ -76,7 +76,7 @@ const createQuestions = (data) => {
 }
 
 
-// ${createLicenseSymbol(data)}
+
 
 function generateMarkdown(data) {
   return `# ${data.projectName}
@@ -92,11 +92,14 @@ function generateMarkdown(data) {
   ## Installation
   ${data.Installation}
 
+  ## License
+  ${data.License}
+
   ## Usage
   ${data.Usage}
 
   ## Contributing
-  ${data.contributersName}
+  ${data.Contributers}
 
   ## Tests
   ${data.Tests}

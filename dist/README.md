@@ -11,11 +11,14 @@
   ## Installation
   j
 
+  ## License
+  Eclipse
+
   ## Usage
   j
 
   ## Contributing
-  undefined
+  j
 
   ## Tests
   j

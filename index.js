@@ -61,7 +61,7 @@ function promptUser(){
     },
   },
   {
-    type: "input",
+    type: "list",
     name: "License",
     message: "What license would you like to use?",
     choices: ['Eclipse','GNU','GNU GPL v3','GNU GPL v2','GNU AGPL v3','GNU AGPL v2','GNU LGPL v3','GNU FDL v1.3'],
