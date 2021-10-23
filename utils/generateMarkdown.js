@@ -90,19 +90,19 @@ function generateMarkdown(data) {
 
         
         ## Installation
-        ${data.installation}
+        ${data.Installation}
 
         ## Usage
-        ${data.usage}
+        ${data.Usage}
 
         ## Contributing
-        ${data.contributing}
+        ${data.contributersName}
 
         ## Tests
-        ${data.tests}
+        ${data.Tests}
 
         ## Questions
-        ${data.questions}
+        ${data.Questions}
         `
 };
 

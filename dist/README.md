@@ -1,7 +1,7 @@
-# readme
+# readme generator
 
         ## Description
-        read
+        create readme
         
         
         ## Table of Contents
@@ -9,17 +9,17 @@
 
         
         ## Installation
-        undefined
+        inquirer node
 
         ## Usage
-        undefined
+        create a read me
 
         ## Contributing
-        undefined
+        z
 
         ## Tests
-        undefined
+        npm start
 
         ## Questions
-        undefined
+        no
         
