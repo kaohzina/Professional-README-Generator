@@ -79,31 +79,31 @@ const createQuestions = (data) => {
 // ${createLicenseSymbol(data)}
 
 function generateMarkdown(data) {
-        return `# ${data.projectName}
+  return `# ${data.projectName}
 
-        ## Description
-        ${data.projectDescription}
+  ## Description
+  ${data.projectDescription}
         
         
-        ## Table of Contents
-        ${data.tableOfContents}
+  ## Table of Contents
+  ${data.tableOfContents}
 
         
-        ## Installation
-        ${data.Installation}
+  ## Installation
+  ${data.Installation}
 
-        ## Usage
-        ${data.Usage}
+  ## Usage
+  ${data.Usage}
 
-        ## Contributing
-        ${data.contributersName}
+  ## Contributing
+  ${data.contributersName}
 
-        ## Tests
-        ${data.Tests}
+  ## Tests
+  ${data.Tests}
 
-        ## Questions
-        ${data.Questions}
-        `
+  ## Questions
+  ${data.Questions}
+  `
 };
 
 

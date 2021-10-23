@@ -74,10 +74,9 @@ function promptUser(){
     },
   },
   {
-    type: "confirm",
+    type: "input",
     name: "Contributers",
-    message: "Are you working with contributers?",
-    default: false,
+    message: "Enter contributers name.",
     when: ({ tableOfContents }) => {
       if (tableOfContents.includes("Contributers")) {
         return true;
@@ -85,12 +84,6 @@ function promptUser(){
         return false;
       }
     },
-  },
-  {
-    type: "input",
-    name: "contributersName",
-    message: "Enter contributers name.",
-    when: ({Contributers}) => (Contributers)
   },
   {
     type: "confirm",
