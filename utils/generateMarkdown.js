@@ -21,10 +21,10 @@ function renderLicenseBadge(License) {
 
 function generateMarkdown(data) {
   return `# ${data.projectName} ${renderLicenseBadge(data.License)}
-  ***
+ 
 ## Description
 ${data.projectDescription}
-***
+
 ## Table of Contents
 [Installation](#installation)
 [Usage](#usage)
@@ -32,22 +32,22 @@ ${data.projectDescription}
 [Tests](#tests)
 [Questions](#questions)
 [License](#license)   
-***
+
 ## Installation
 ${data.Installation}
-***
+
 ## Usage
 ${data.Usage}
-***
+
 ## Contributing
 ${data.Contributing}
-***
+
 ## Tests
 ${data.Tests}
-***
+
 ## License
 This project is under the [${data.License}](https://opensource.org/licenses/${data.License}) license.
-***
+
 ## Questions
 If you want to contact me you can reach me at ${data.Email} or [${data.Github}](https://github.com/${data.Github}).
 `
