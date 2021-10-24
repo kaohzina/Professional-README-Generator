@@ -49,7 +49,7 @@ ${data.Tests}
 This project is under the [${data.License}](https://opensource.org/licenses/${data.License}) license.
 
 ## Questions
-If you want to contact me you can reach me at ${data.Email} or [${data.Github}](https://github.com/${data.Github}).
+If you want to contact me you can reach me at ${data.Email} or checkout my GitHub account at [${data.Github}](https://github.com/${data.Github}).
 `
 };
 
