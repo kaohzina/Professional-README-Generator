@@ -7,106 +7,46 @@ function renderLicenseBadge(license) {
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(license) {}
+function renderLicenseLink(license) {
+  return "yohoho"
+}
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license) {}
 
-const createTableOfContents = (data) => {
-  `${data.tableOfContents}`;
-  }
-
-const createDescription = (data) => {
-`${data.projectDescription}`;
-}
-
-const createInstall = (data) => {
-  if (!data.tableOfContents.includes("Installation")) {
-    return "";
-  }
-  return `
-${data.installation}`;
-}
-
-const createUsage = (data) => {
-  if (!data.tableOfContents.includes("Usage")) {
-    return "";
-  }
-  return `
-  ## Usage
-  ${data.usage}`
-}
-
-const createLicense =(data) => {
-  if (!data.tableOfContents.includes("License")) {
-    return "";
-  }
-  return `
-  ## License
-  ${data.license}`
-}
-
-const createContributing = (data) => {
-  if (!data.tableOfContents.includes("Contributing")){
-    return "";
-  }
-  return `
-  ## Contributing
-  ${data.contributing}`
-}
-
-const createTests = (data) => {
-  if (!data.tableOfContents.includes("Tests")) {
-    return "";
-  }
-  return `
-  ## Tests
-  ${data.tests}`
-}
-
-const createQuestions = (data) => {
-  if (!data.tableOfContents.includes("Questions")){
-    return "";
-  }
-  return`
-  ## Questions
-  ${data.questions}
-  `
-}
-
-
-
-
 function generateMarkdown(data) {
   return `# ${data.projectName}
 
-  ## Description
-  ${data.projectDescription}
-        
-        
-  ## Table of Contents
-  ${data.tableOfContents}
+## Description
+${data.projectDescription}
+      
+## Table of Contents
+[Installation](#installation)
+[Usage](#Usage)
+[Contributing](#Contributing)
+[Tests](#Tests)
+[Questions](#Questions)
+[License](#license)   
 
-        
-  ## Installation
-  ${data.Installation}
+## Installation
+${data.Installation}
 
-  ## License
-  ${data.License}
+## Usage
+${data.Usage}
 
-  ## Usage
-  ${data.Usage}
+## Contributing
+${data.Contributing}
 
-  ## Contributing
-  ${data.Contributers}
+## Tests
+${data.Tests}
 
-  ## Tests
-  ${data.Tests}
+## License
+This project is under the [${data.License}](https://opensource.org/licenses/${data.License}) license.
 
-  ## Questions
-  ${data.Questions}
-  `
+## Questions
+If you want to contact me you can reach me at ${data.Email} or [${data.Github}](https://github.com/${data.Github}).
+`
 };
 
 

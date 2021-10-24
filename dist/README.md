@@ -1,28 +1,31 @@
-# j
+# readme generator
 
-  ## Description
-  j
-        
-        
-  ## Table of Contents
-  Installation,Usage,License,Contributers,Tests
+![License](https://img.shields.io/badge/License-Zinanshin-blue.svg)
+## Description
+creating a readme
+      
+## Table of Contents
+[Installation](#installation)
+[Usage](#Usage)
+[Contributing](#Contributing)
+[Tests](#Tests)
+[Questions](#Questions)
+[License](#license)   
 
-        
-  ## Installation
-  j
+## Installation
+node.js
 
-  ## License
-  Eclipse
+## Usage
+create a readme
 
-  ## Usage
-  j
+## Contributing
+d
 
-  ## Contributing
-  j
+## Tests
+npm run test
 
-  ## Tests
-  j
+## License
+This project is under the [MIT](https://opensource.org/licenses/MIT) license.
 
-  ## Questions
-  j
-  
+## Questions
+If you want to contact me you can reach me at kaohzina@gmail.com or [kaohzina](https://github.com/kaohzina).

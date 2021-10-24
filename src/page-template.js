@@ -67,7 +67,7 @@ const createQuestions = (data) => {
   }
   return`
   ## Questions
-  ${data.questions}
+  
   `
 };
 

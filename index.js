@@ -31,89 +31,40 @@ function promptUser(){
     },
   },
   {
-    type: "checkbox",
-    name: "tableOfContents",
-    message: "Include in README?",
-    choices: ["Installation", "Usage", "License", "Contributers", "Tests"],
-  },
-  {
     type: "input",
     name: "Installation",
-    message: "What is used in this project?",
-    when: ({ tableOfContents }) => {
-      if (tableOfContents.includes("Installation")) {
-        return true;
-      } else {
-        return false;
-      }
-    },
+    message: "What are the installation instructions?"
   },
   {
     type: "input",
     name: "Usage",
-    message: "What is this project used for?",
-    when: ({ tableOfContents }) => {
-      if (tableOfContents.includes("Usage")) {
-        return true;
-      } else {
-        return false;
-      }
-    },
+    message: "What is this project used for?"
   },
   {
     type: "list",
     name: "License",
     message: "What license would you like to use?",
-    choices: ['Eclipse','GNU','GNU GPL v3','GNU GPL v2','GNU AGPL v3','GNU AGPL v2','GNU LGPL v3','GNU FDL v1.3'],
-    when: ({ tableOfContents }) => {
-      if (tableOfContents.includes("License")) {
-        return true;
-      } else {
-        return false;
-      }
-    },
+    choices: ['MIT','BSD-3-Clause','EPL-1.0','Apache-2.0', 'NONE'],
   },
   {
     type: "input",
-    name: "Contributers",
-    message: "Enter contributers name.",
-    when: ({ tableOfContents }) => {
-      if (tableOfContents.includes("Contributers")) {
-        return true;
-      } else {
-        return false;
-      }
-    },
-  },
-  {
-    type: "confirm",
-    name: "Contributers",
-    message: "Do you want to add another contributer?",
-    default: false,
-    when: ({ tableOfContents }) => {
-      if (tableOfContents.includes("Contributers")) {
-        return true;
-      } else {
-        return false;
-      }
-    },
+    name: "Contributing",
+    message: "How do you contribute to this project?",
   },
   {
     type: "input",
     name: "Tests",
     message: "How does someone test your program?",
-    when: ({ tableOfContents }) => {
-      if (tableOfContents.includes("Tests")) {
-        return true;
-      } else {
-        return false;
-      }
-    },
   },
   {
     type: "input",
-    name: "Questions",
-    message: "Do you have any questions?",
+    name: "Email",
+    message: "Enter your email address.",
+  },
+  {
+    type: "input",
+    name: "Github",
+    message: "Enter your GitHub username.",
   },
   ]);
 }
