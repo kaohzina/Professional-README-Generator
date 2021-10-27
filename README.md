@@ -1,5 +1,5 @@
 # Professional README Generator ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
-  link to deployed repository https://kaohzina.github.io/Professional-README-Generator/
+  link to video walkthrough https://www.youtube.com/watch?v=h9d1GpkpPkc
 ## Description
 Creating an easy to use program to generate a professional README.md file in every future project.
 
